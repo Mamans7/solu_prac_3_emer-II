@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.container {
+    display: flex;
+}
+
+.datos {
+    flex: 0 0 60%;
+    /* 60% del ancho */
+    margin-right: 20px;
+    /* Espacio entre los formularios */
+}
+
+.content {
+    flex: 0 0 35%;
+    /* 40% del ancho */
+}
+
+fieldset {
+    border: 2px solid #836565;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-weight: bold;
+}
+
+.enviar {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 35px;
+    background: #22eb44;
+    border-radius: 5px;
+    border: none;
+}
