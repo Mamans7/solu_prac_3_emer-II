@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica #3</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h3 class="titulo">Contenido del carrito</h3>
+    <a href="{{ url_for('index') }}"><button>Volver</button></a>
+    <a href="{{ url_for('vaciar') }}"><button>Vaciar la lista</button></a><br><br>
+    <div>
+        <table border="1" cellspacing="0">
+            {% if datos %}
+            <tr>
+                <th>Id</th>
+                <th>Fecha</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Turno</th>
+                <th>Seminarios</th>
+            </tr>
+            {% for item in datos %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.fecha }}</td>
+                <td>{{ item.nombre }}</td>
+                <td>{{ item.apellido }}</td>
+                <td>{{ item.turno }}</td>
+                <td>{{ item.seminario }}</td>
+                <td><a href=""><button>Editar</button></a></td>
+                <td><a href=""><button>Borrar</button></a></td>
+            </tr>
+            {% endfor %} {% else %}
+            <p>Los datos estan vacias</p>
+            {% endif %}
+        </table>
+    </div>
+</body>
+
+</html>

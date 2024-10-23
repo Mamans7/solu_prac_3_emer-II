@@ -9,76 +9,55 @@
 </head>
 
 <body>
-    <form action="{{ url_for('verificar') }}" method="POST">
-        <fieldset>
-            <legend>Datos</legend>
-            <table>
-                <tr>
-                    <td>Fecha:</td>
-                    <td colspan="3"><input type="date" name="fecha" required></td>
-                </tr>
-                <tr>
-                    <td>Nombre:</td>
-                    <td colspan="3"><input type="text" name="nombre" required></td>
-                </tr>
-                <tr>
-                    <td>Apellido:</td>
-                    <td colspan="3"><input type="text" name="apellido" required></td>
-                </tr>
-                <tr>
-                    <td>Turno:</td>
-                    <td><input type="radio" name="turno" value="Manaña" required>Mañana</td>
-                    <td><input type="radio" name="turno" value="Tarde" required>Tarde</td>
-                    <td><input type="radio" name="turno" value="Noche" required>Noche</td>
-                </tr>
-            </table>
-        </fieldset>
-        <fieldset>
-            <legend>Seminarios disponibles</legend>
-            <div class="form-group">
-                <input type="checkbox" id="opcion1" name="seminario[]" value="Inteligencia Artificial">
-                <label for="opcion1">Inteligencia Artificial</label>
-            </div>
-            <div class="form-group">
-                <input type="checkbox" id="opcion2" name="seminario[]" value="Machine Learning">
-                <label for="opcion2">Machine Learning</label>
-            </div>
-            <div class="form-group">
-                <input type="checkbox" id="opcion3" name="seminario[]" value="Simulación con Arena">
-                <label for="opcion3">Simulación con Arena</label>
-            </div>
-            <div class="form-group">
-                <input type="checkbox" id="opcion4" name="seminario[]" value="Robótica Educativa">
-                <label for="opcion4">Robótica Educativa</label>
-            </div>
-        </fieldset>
-        <input type="submit" value="Enviar registro">
-    </form>
-    <a href="{{ url_for('vaciar') }}">Vaciar el carrito</a>
-    <h3>Contenido del carrito</h3>
     <div>
-        <table border="1" cellspacing="0">
-            {% if datos %}
-            <tr>
-                <!-- <th>Id</th> -->
-                <th>Fecha</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Turno</th>
-                <th>Seminarios</th>
-            </tr>
-            {% for item in datos %}
-            <tr>
-                <td>{{ item.fecha }}</td>
-                <td>{{ item.nombre }}</td>
-                <td>{{ item.apellido }}</td>
-                <td>{{ item.turno }}</td>
-                <td>{{ item.seminario }}</td>
-            </tr>
-            {% endfor %} {% else %}
-            <p>Los datos estan vacias</p>
-            {% endif %}
-        </table>
+        <h3 class="titulo">Registro en Seminarios</h3>
+        <form action="{{ url_for('verificar') }}" method="POST">
+            <fieldset>
+                <legend>Datos</legend>
+                <table>
+                    <tr>
+                        <td>Fecha:</td>
+                        <td colspan="3"><input type="date" name="fecha" required></td>
+                    </tr>
+                    <tr>
+                        <td>Nombre:</td>
+                        <td colspan="3"><input type="text" name="nombre" required></td>
+                    </tr>
+                    <tr>
+                        <td>Apellido:</td>
+                        <td colspan="3"><input type="text" name="apellido" required></td>
+                    </tr>
+                    <tr>
+                        <td>Turno:</td>
+                        <td><input type="radio" name="turno" value="Manaña" required>Mañana</td>
+                        <td><input type="radio" name="turno" value="Tarde" required>Tarde</td>
+                        <td><input type="radio" name="turno" value="Noche" required>Noche</td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>Seminarios disponibles</legend>
+                <div class="form-group">
+                    <input type="checkbox" id="opcion1" name="seminario[]" value="Inteligencia Artificial">
+                    <label for="opcion1">Inteligencia Artificial</label>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="opcion2" name="seminario[]" value="Machine Learning">
+                    <label for="opcion2">Machine Learning</label>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="opcion3" name="seminario[]" value="Simulación con Arena">
+                    <label for="opcion3">Simulación con Arena</label>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="opcion4" name="seminario[]" value="Robótica Educativa">
+                    <label for="opcion4">Robótica Educativa</label>
+                </div>
+            </fieldset>
+            <input type="submit" value="Enviar registro">
+        </form>
+        <br>
+        <a href="{{ url_for('lista') }}"><button>Ver registro</button></a>
     </div>
 </body>
 
